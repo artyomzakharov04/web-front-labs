@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Захаров Артём Евгеньевич. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+
+    <script>
+        function sum() {
+            let Shavs = 250 * document.getElementById('Shavs').value;
+            let Kebab = 300 * document.getElementById('Kebab').value;
+            let Burgers = 120 * document.getElementById('Burgers').value;
+            let Pizz = 500 * document.getElementById('Pizz').value;
+            let CocaCola = 100 * document.getElementById('CocaCola').value;
+
+            document.getElementById('output').innerHTML = 'Общая цена: ' + parseInt(Shavs + Kebab + Burgers + Pizz + CocaCola);
+        }
+
+
+        function clearCart() {
+            document.getElementById('Shavs').value = "";
+            document.getElementById('Kebab').value = "";
+            document.getElementById('Burgers').value = "";
+            document.getElementById('Pizz').value = "";
+            document.getElementById('CocaCola').value = "";
+            document.getElementById('output').remove();
+        }
+
+    </script>
+
+    <style>
+        .cart {
+            width: 298px;
+            border: 3px solid maroon;
+            border-radius: 5px;
+            padding: 0 0 10px 10px;
+        }
+
+        .cart-input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 220px;
+            padding: 5px 0 5px 5px;
+            border-radius: 10px;
+            border: 0;
+        }
+
+        .cart-input:focus {
+            outline: none;
+        }
+
+        .cart-button {
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+<header>
+    НГТУ, ФБ, Лабораторная работа 5
+</header>
+
+
+<main>
+    <div class="cart">
+        <h1>Корзина товаров</h1>
+        <div class="cart-inputs">
+            <div>
+                <label>Шаурма (250р/шт): <input type="number" class="cart-input" min="0"
+                                                placeholder="Введите количество шаверм" id="Shavs"></label>
+            </div>
+            <div>
+                <label>Кебаб (300р/шт): <input type="number" class="cart-input" min="0"
+                                              placeholder="Введите количество кебабов" id="Kebab"></label>
+            </div>
+            <div>
+                <label>Бургер (120р/шт): <input type="number" class="cart-input" min="0"
+                                                   placeholder="Введите количество бургеров" id="Burgers"></label>
+            </div>
+            <div>
+                <label>Пицца (500р/шт): <input type="number" class="cart-input" min="0"
+                                              placeholder="Введите количество пицц" id="Pizz"></label>
+            </div>
+            <div>
+                <label>КокаКола (100р/шт): <input type="number" class="cart-input" min="0"
+                                                placeholder="Введите количество КокаКол" id="CocaCola"></label>
+            </div>
+            <input type="button" class="cart-button" value="Рассчитать" onclick="sum()">
+            <input type="button" class="cart-button" value="Очистить" onclick="clearCart()">
+            <div class="result"><span id="output"></span></div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; Захаров Артём Евгеньевич, ФБИ-23. 2 курс, 2024
+</footer>
+</body>
+</html>

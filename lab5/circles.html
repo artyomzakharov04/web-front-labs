@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Захаров Артём Евгеньевич. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+
+    <style>
+        .main-block {
+            position: relative;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .image img {
+            max-width: 100%;
+        }
+
+        .cloud {
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            border: 1px dotted maroon;
+            box-shadow: 5px 5px 15px #992233;
+            display: none;
+        }
+
+        .cloud-1 {
+            width: 10px;
+            padding: 5px;
+            top: 102px;
+            right: 211px;
+        }
+        .cloud-2 {
+            width: 20px;
+            padding: 10px;
+            top: 86px;
+            right: 173px;
+        }
+        .cloud-3 {
+            width: 30px;
+            padding: 15px;
+            top: 66px;
+            right: 118px;
+        }
+        .cloud-4 {
+            width: 91px;
+            padding: 20px;
+            top: 22px;
+            right: 4px;
+        }
+
+        .main-block:hover {
+            .cloud {
+                display: block;
+            }
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    НГТУ, ФБ, Лабораторная работа 4
+</header>
+
+
+<main>
+    <div class="main-block">
+        
+        </div>
+        <div class="cloud cloud-1">
+
+        </div>
+        <div class="cloud cloud-2">
+
+        </div>
+        <div class="cloud cloud-3">
+
+        </div>
+        <div class="cloud cloud-4">
+            
+        </div>
+
+        <div class="circle" style="top: 50px; left: 100px; background-color: #ffcccc;">1</div>
+        <div class="circle" style="top: 200px; left: 300px; background-color: #ccffcc;">2</div>
+        <div class="circle" style="top: 150px; left: 150px; background-color: #ccccff;">3</div>
+        <div class="circle" style="top: 300px; left: 400px; background-color: #ffccff;">4</div>
+        <div class="circle" style="top: 100px; left: 450px; background-color: #ccffff;">5</div>
+        <div class="circle" style="top: 250px; left: 50px; background-color: #ffcccc;">6</div>
+        <div class="circle" style="top: 350px; left: 200px; background-color: #ccffcc;">7</div>
+        <div class="circle" style="top: 50px; left: 350px; background-color: #ccccff;">8</div>
+        <div class="circle" style="top: 150px; left: 100px; background-color: #ffccff;">9</div>
+        <div class="circle" style="top: 300px; left: 500px; background-color: #ccffff;">10</div>
+    </div>
+</main>
+
+<script>
+    const circles = document.querySelectorAll('.circle');
+
+    circles.forEach((circle, index) => {
+        circle.textContent = index + 1;
+        circle.addEventListener('click', () => {
+            circle.style.width = '0';
+            circle.style.height = '0';
+            
+            circle.style.opacity = '0';
+        });
+    });
+</script>
+
+</body>
+</html>
