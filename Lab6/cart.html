@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина товаров</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-48x48.icon">
+</head>
+<body>
+    <header>
+        НГТУ ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div>
+            <label for="balance">Мой баланс:</label>
+            <input type="number" id="balance" value="1000">
+        </div>
+
+        <div>
+            <h2>Корзина товаров</h2>
+            <table>
+                <tr>
+                    <th>Товар</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                </tr>
+                <tr>
+                    <td>Шапка</td>
+                    <td>500</td>
+                    <td><input type="number" id="item1" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Худи</td>
+                    <td>800</td>
+                    <td><input type="number" id="item2" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Куртка</td>
+                    <td>1200</td>
+                    <td><input type="number" id="item3" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Свитшот</td>
+                    <td>700</td>
+                    <td><input type="number" id="item4" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Лонгслив</td>
+                    <td>300</td>
+                    <td><input type="number" id="item5" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Джинсы</td>
+                    <td>1500</td>
+                    <td><input type="number" id="item6" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Кроссовки</td>
+                    <td>1000</td>
+                    <td><input type="number" id="item7" value="0"></td>
+                </tr>
+            </table>
+        </div>
+
+        <button id="checkout">OK</button>
+        <div id="result"></div>
+    </main>
+
+    <footer>
+        &copy; Варюхин Иван, ФБИ-23, 2 курс, 2024
+    </footer>
+
+    <script>
+        const balanceInput = document.getElementById('balance');
+        const checkoutBtn = document.getElementById('checkout');
+        const resultDiv = document.getElementById('result');
+
+        const items = [
+            { name: 'Футболка', price: 500, quantity: 0 },
+            { name: 'Брюки', price: 800, quantity: 0 },
+            { name: 'Кроссовки', price: 1200, quantity: 0 },
+            { name: 'Рюкзак', price: 700, quantity: 0 },
+            { name: 'Шапка', price: 300, quantity: 0 },
+            { name: 'Куртка', price: 1500, quantity: 0 },
+            { name: 'Джинсы', price: 1000, quantity: 0 }
+        ];
+
+        checkoutBtn.addEventListener('click', checkout);
+
+        function checkout() {
+            let totalCost = 0;
+            let allEmpty = true;
+            let negativeQuantity = false;
+
+            for (let i = 0; i < items.length; i++) {
+                const quantityInput = document.getElementById(`item${i + 1}`);
+                const quantity = parseInt(quantityInput.value);
+
+                if (!isNaN(quantity)) {
+                    if (quantity < 0) {
+                        negativeQuantity = true;
+                    } else if (quantity > 0) {
+                        allEmpty = false;
+                        
+                        totalCost += items[i].price * quantity;
+                    }
+                }
+            }
+
+            resultDiv.innerHTML = '';
+
+            if (negativeQuantity) {
+                resultDiv.innerHTML = 'Ошибка: Количество товара не может быть отрицательным.';
+            } else if (allEmpty) {
+                resultDiv.innerHTML = 'Ошибка: Необходимо выбрать хотя бы один товар.';
+            } else {
+                const balance = parseInt(balanceInput.value);
+                if (totalCost > balance) {
+                    resultDiv.innerHTML = `Ошибка: Общая стоимость (${totalCost}) превышает имеющийся баланс (${balance}).`;
+                } else {
+                    resultDiv.innerHTML = `Успешное оформление товаров. Итоговая сумма: ${totalCost}.`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Варюхин Иван Алексеевич. «Фильтр товаров»</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-48x48.icon">
+</head>
+<body>
+    <header>
+        НГТУ ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div>
+            Цвет одежды:
+            <select id="wear-color">
+                <option>красный</option>
+                <option>белый</option>
+                <option>чёрный</option>
+            </select><br>
+
+            Тип одежды:
+            <select id="wear-type">
+                <option>Футболка</option>
+                <option>Поло</option>
+                <option>Майка</option>
+            </select><br>
+
+            <button id="filterBtn">OK</button><br>
+            <img id="wear">
+        </div>
+    </main>
+
+    <footer>
+        &copy; Варюхин Иван, ФБИ-23, 2 курс, 2024
+    </footer>
+
+    <script>
+        function filter() {
+            let color = document.getElementById('wear-color').value;
+            let type = document.getElementById('wear-type').value;
+            let wear = document.getElementById('wear');
+
+            if (color == 'красный' && type == 'Футболка') {
+                wear.src = 'redf.jpg'
+            }
+            if (color == 'белый' && type == 'Футболка') {
+                wear.src = 'whitef.webp'
+            }
+            if (color == 'чёрный' && type == 'Футболка') {
+                wear.src = 'blackf.jpg'
+            }
+            if (color == 'красный' && type == 'Поло') {
+                wear.src = 'redp.jpg'
+            }
+            if (color == 'белый' && type == 'Поло') {
+                wear.src = 'whitep.jpg'
+            }
+            if (color == 'чёрный' && type == 'Поло') {
+                wear.src = 'blackp.jpg'
+            }
+            if (color == 'красный' && type == 'Майка') {
+                wear.src = 'redm.webp'
+            }
+            if (color == 'белый' && type == 'Майка') {
+                wear.src = 'whitem.jpg'
+            }
+            if (color == 'чёрный' && type == 'Майка') {
+                wear.src = 'blackm.webp'
+            }
+        }
+
+        const filterBtn = document.getElementById('filterBtn');
+        filterBtn.addEventListener('click', filter);
+    </script>
+</body>
+</html>
