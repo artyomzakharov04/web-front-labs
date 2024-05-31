@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Захаров Артём Евгеньевич. Лабораторная 8</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-48x48.ico">
+    <script src="lab8.js"></script>
+</head>
+<body onload="showDate()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+
+    <main>
+        <div id="current-date"></div>
+        <div id="en-locale"></div>
+        <div id="es-locale"></div>
+        <div id="de-locale"></div>
+        <div id="zh-locale"></div>
+
+        <div class="current-date">
+            <div id="year"></div>
+            <div id="month"></div>
+            <div id="day"></div>
+            <div id="weekDay"></div>
+        </div>
+
+        <div class="week-day">
+            <label for="day">День:</label>
+            <input type="number" id="DAY" min="1" max="31" value="1">
+          
+            <label for="month">Месяц:</label>
+            <input type="number" id="MONTH" min="1" max="12" value="1">
+          
+            <label for="year">Год:</label>
+            <input type="number" id="YEAR" min="1900" max="2100" value="2024">
+          
+            <button id="dayButton">День недели</button>
+          
+            <div id="result"></div>
+        </div>
+       
+
+    </main>
+
+    <footer>
+        &copy; Захаров Артём, ФБИ-23, 2 курс, 2024
+    </footer>
+    
+</body>
+</html>
