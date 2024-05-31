@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Захаров Артём Евгеньевич. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-48x48.ico">
+    <script>
+        function showStockPrices() {
+            const dates = [
+                "26.04.2024", "27.04.2024", "29.04.2024", "30.04.2024", "02.05.2024",
+                "03.05.2024", "06.05.2024", "07.05.2024", "08.05.2024"
+            ];
+            const prices = [40340, 40020, 39640, 39880, 40300, 39900, 39720, 39600, 39660];
+            let table = document.getElementById('stock-table');
+            let sum = 0;
+            let min = prices[0];
+            let max = prices[0];
+
+            for (let i = 0; i < prices.length; i++) {
+                let tr = document.createElement('tr');
+
+                let dateTd = document.createElement('td');
+                dateTd.innerText = dates[i];
+                tr.appendChild(dateTd);
+
+                let priceTd = document.createElement('td');
+                priceTd.innerText = prices[i];
+                tr.appendChild(priceTd);
+
+                let diffTd = document.createElement('td');
+                if (i === 0) {
+                    diffTd.innerText = "-";
+                } else {
+                    let diff = prices[i] - prices[i - 1];
+                    diffTd.innerText = diff;
+                }
+                tr.appendChild(diffTd);
+
+                table.appendChild(tr);
+
+                sum += prices[i];
+                min = Math.min(min, prices[i]);
+                max = Math.max(max, prices[i]);
+            }
+
+            let average = sum / prices.length;
+            average = average.toFixed(2);
+            let detailDiv = document.getElementById('detail');
+            detailDiv.innerText = `Среднее значение: ${average}\nМинимальное значение: ${min}\nМаксимальное значение: ${max}`;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showStockPrices()">Курс акций ВСМПО-АВИСМА</button>
+        <table border="1" id="stock-table">
+            <tr>
+                <th>Дата</th>
+                <th>Цена акций</th>
+                <th>Разница</th>
+            </tr>
+        </table>
+        <div id="detail"></div>
+    </main>
+
+    <footer>
+        &copy; Захаров Артём, ФБИ-23, 2 курс, 2024
+    </footer>
+</body>
+</html>
