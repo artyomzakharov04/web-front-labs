@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Position</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Захаров Артём Евгеньевич. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+
+    <style>
+        div {
+            width: 300px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            background-color: white;
+            border: 1px solid darkgreen;
+            margin: 15px;
+        }
+
+        .position-relative {
+            position: relative;
+            left: -14px;
+            top: -45px;
+            z-index: 1;
+        }
+        .position-relative:hover {
+            z-index: 1;
+        }
+
+        .position-absolute {
+            position: absolute;
+            left: 300px;
+        }
+
+        .position-absolute:hover {
+            scale: 1.2;
+            transition: 0.5s;
+            color: red;
+            box-shadow: 2px 2px 4px rgba(61, 105, 16, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    НГТУ, ФБ, Лабораторная работа 4
+</header>
+
+<main>
+    <div>static</div>
+    <div>static</div>
+    <div class="position-relative">relative</div>
+    <div>static</div>
+    <div>static</div>
+    <div class="position-absolute">absolute</div>
+    <div>static</div>
+    <div>static</div>
+    <div>static</div>
+    <div>static</div>
+</main>
+
+<footer>
+    &copy; Захаров Артём Евгеньевич, ФБИ-23. 2 курс, 2024
+</footer>
+</body>
+</html>
